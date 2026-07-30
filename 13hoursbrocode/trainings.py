@@ -60,21 +60,38 @@
 
 ### intrest rate calculator
 
-principle = 0
-rate = 0
-time = 0
+# principle = 0
+# rate = 0
+# time = 0
 
-while principle <= 0 and rate <= 0 and time <= 0 :
-    principle = float(input("Enter the principle amount :"))
-    if principle < 0 :
-        print("principle can't be under 0")
-    rate = float(input("Enter the rate :"))
-    if rate < 0 :
-        print("rate can't be under 0")
-    time = int(input("Enter the time in years :"))
-    if time < 0 :
-        print("time can't be under 0")
+# while principle <= 0 and rate <= 0 and time <= 0 :
+#     principle = float(input("Enter the principle amount :"))
+#     if principle < 0 :
+#         print("principle can't be under 0")
+#     rate = float(input("Enter the rate :"))
+#     if rate < 0 :
+#         print("rate can't be under 0")
+#     time = int(input("Enter the time in years :"))
+#     if time < 0 :
+#         print("time can't be under 0")
 
-result = principle* pow(1+(rate/100),time)
+# result = principle* pow(1+(rate/100),time)
 
-print(f"with principle of {principle:,.2f} and {rate:.2f} rate in {time} years, u will have {result:,.001f}$")
+# print(f"with principle of {principle:,.2f} and {rate:.2f} rate in {time} years, u will have {result:,.001f}$")
+
+### countdown timer 
+
+import time
+
+seconds = int(input("Enter time in seconds :"))
+
+for x in range(seconds,0,-1) :
+    sec = x % 60
+    mins = (x // 60) % 60
+    hours = x // 3600
+    print(f"{hours:02}:{mins:02}:{sec:02}")
+    time.sleep(1)
+
+    
+
+print("times up")
