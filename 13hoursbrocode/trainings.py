@@ -81,17 +81,43 @@
 
 ### countdown timer 
 
-import time
+# import time
 
-seconds = int(input("Enter time in seconds :"))
+# seconds = int(input("Enter time in seconds :"))
 
-for x in range(seconds,0,-1) :
-    sec = x % 60
-    mins = (x // 60) % 60
-    hours = x // 3600
-    print(f"{hours:02}:{mins:02}:{sec:02}")
-    time.sleep(1)
+# for x in range(seconds,0,-1) :
+#     sec = x % 60
+#     mins = (x // 60) % 60
+#     hours = x // 3600
+#     print(f"{hours:02}:{mins:02}:{sec:02}")
+#     time.sleep(1)
 
     
 
-print("times up")
+# print("times up")
+
+### Shopping cart program 
+
+foods=[]
+prices=[]
+total = 0
+
+while True:
+    order = input("Enter the food u order: (q for exit) \n")
+    if order.lower() == "q" :
+        break
+    else :
+        price = int(input(f"Enter the price for {order.capitalize()}: $"))
+        foods.append(order)
+        prices.append(price)
+
+for food in foods :
+    print(food, end=" ")
+
+for price in prices :
+    total += price
+
+print(f"your total is {total}$")
+        
+    
+    
