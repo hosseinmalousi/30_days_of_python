@@ -98,26 +98,74 @@
 
 ### Shopping cart program 
 
-foods=[]
-prices=[]
-total = 0
+# foods=[]
+# prices=[]
+# total = 0
 
-while True:
-    order = input("Enter the food u order: (q for exit) \n")
-    if order.lower() == "q" :
-        break
-    else :
-        price = int(input(f"Enter the price for {order.capitalize()}: $"))
-        foods.append(order)
-        prices.append(price)
+# while True:
+#     order = input("Enter the food u order: (q for exit) \n")
+#     if order.lower() == "q" :
+#         break
+#     else :
+#         price = int(input(f"Enter the price for {order.capitalize()}: $"))
+#         foods.append(order)
+#         prices.append(price)
 
-for food in foods :
-    print(food, end=" ")
+# for food in foods :
+#     print(food, end=" ")
 
-for price in prices :
-    total += price
+# for price in prices :
+#     total += price
 
-print(f"your total is {total}$")
+# print(f"your total is {total}$")
         
+### phone tastatur 
+
+# keyboards = [(7,8,9),(4,5,6),(1,2,3),("*",0,"#")]
+
+# for key in keyboards:
+#     for row in key:
+#         print(row,end=" ")
+#     print()
+
+
+### quizz 
+
+questions = (
+    "What gas do humans need to breathe to survive?",
+    "What is the closest planet to the Sun?",
+    "What force pulls objects toward the Earth?",
+    "What organ pumps blood through the human body?"
+)
+
+answers = (
+    ("A) Nitrogen", "B) Oxygen", "C) Helium", "D) Carbon"),
+    ("A) Venus", "B) Mars", "C) Mercury", "D) Earth"),
+    ("A) Friction", "B) Inertia", "C) Magnetism", "D) Gravity"),
+    ("A) Liver", "B) Heart", "C) Kidney", "D) Lung")
+)
+
+correct_answers = ("B", "C", "D", "B")
+guesses =[]
+score = 0
+row =0
+
+for qeustion in questions:
+    print("+++++++++++++++++++++++++++++++++++")
+    print(qeustion)
+    for answer in answers[row]:
+        print(answer)    
     
-    
+    guess = input("Please Answer with A,B,C,D: ")
+    guesses.append(guess)
+    if guess.upper() == correct_answers[row]:
+        print("correct answer")
+        score +=1
+    else :
+        print(f"the correct answer is {correct_answers[row]}")
+        
+    row += 1
+ 
+print("/////// SCORES \\\\\\\\\\")
+
+print(f"YOU'VE SCORED {score / len(questions) *100} ")
