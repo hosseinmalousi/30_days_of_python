@@ -20,3 +20,16 @@
 #     print("please insert the right operation")
 
     
+## weight converter 
+
+weight = float(input("how much do u weight ?"))
+unit = input("is it in kilogram (K) or pounds (L)").lower()
+
+if unit == "k" :
+    unit = "Lb"
+    print(f"{round(weight * 2,20462 , 1)} {unit}")
+elif unit == "l" :
+    unit = "KG"
+    print(f"{round(weight / 2,20462 , 1)} {unit}")
+else :
+    print(f"the unit {unit} is not correct")
