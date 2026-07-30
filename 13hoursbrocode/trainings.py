@@ -77,4 +77,4 @@ while principle <= 0 and rate <= 0 and time <= 0 :
 
 result = principle* pow(1+(rate/100),time)
 
-print(f"with principle of {principle:,.2f} and {rate:.2f} rate in {time} years, u will have {result:,.002f}")
+print(f"with principle of {principle:,.2f} and {rate:.2f} rate in {time} years, u will have {result:,.001f}$")
