@@ -57,3 +57,24 @@
 #     print("the username is Valid")
 # else :
 #     print("please enter a user name that :\n 'under 12 characters' \n 'no spaces' \n 'contain no digits'")
+
+### intrest rate calculator
+
+principle = 0
+rate = 0
+time = 0
+
+while principle <= 0 and rate <= 0 and time <= 0 :
+    principle = float(input("Enter the principle amount :"))
+    if principle < 0 :
+        print("principle can't be under 0")
+    rate = float(input("Enter the rate :"))
+    if rate < 0 :
+        print("rate can't be under 0")
+    time = int(input("Enter the time in years :"))
+    if time < 0 :
+        print("time can't be under 0")
+
+result = principle* pow(1+(rate/100),time)
+
+print(f"with principle of {principle:,.2f} and {rate:.2f} rate in {time} years, u will have {result:,.002f}")
