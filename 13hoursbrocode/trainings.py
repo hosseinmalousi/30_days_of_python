@@ -242,33 +242,33 @@
 #         print("please enter a number")
         
 ### Rock , Paper , Scissors
-import random
+# import random
 
-options = ("rock" , "paper", "scissors")
+# options = ("rock" , "paper", "scissors")
 
 
 
-playing = True
+# playing = True
 
-while playing :
-    Player = None
-    computer = random.choice(options)
-    while Player not in options :
-        Player = input("Rock , Paper ,Scissors : ").lower()
+# while playing :
+#     Player = None
+#     computer = random.choice(options)
+#     while Player not in options :
+#         Player = input("Rock , Paper ,Scissors : ").lower()
     
-    print(f"your choice {Player}")
-    print(f"computer choice {computer}")
+#     print(f"your choice {Player}")
+#     print(f"computer choice {computer}")
     
-    if Player == "paper" and computer == "rock" :
-        print("you win :)")
-    elif Player == "rock" and computer == "scissors":
-        print("you win :)")
-    elif Player == "scissors" and computer == "paper":
-        print("you win :)")
-    elif Player == computer:
-        print("it's a tie")
-    else :
-        print("you lose :( )")
+#     if Player == "paper" and computer == "rock" :
+#         print("you win :)")
+#     elif Player == "rock" and computer == "scissors":
+#         print("you win :)")
+#     elif Player == "scissors" and computer == "paper":
+#         print("you win :)")
+#     elif Player == computer:
+#         print("it's a tie")
+#     else :
+#         print("you lose :( )")
     
-    if input("wanna play again ? (yes/no) ") != "yes" :
-        playing = False 
+#     if input("wanna play again ? (yes/no) ") != "yes" :
+#         playing = False 
