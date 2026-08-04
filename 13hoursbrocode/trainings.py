@@ -272,3 +272,55 @@
     
 #     if input("wanna play again ? (yes/no) ") != "yes" :
 #         playing = False 
+
+### Dice roller program
+
+# import random
+
+# dies= []
+# dices = {1: (" _______ ",
+#              "|       |",
+#              "|   *   |",
+#              "|       |",
+#              "|_______|"),
+#          2: (" _______ ",
+#              "| *     |",
+#              "|       |",
+#              "|     * |",
+#              "|_______|"),
+#          3: (" _______ ",
+#              "| *     |",
+#              "|   *   |",
+#              "|     * |",
+#              "|_______|"),
+#          4: (" _______ ",
+#              "| *   * |",
+#              "|       |",
+#              "| *   * |",
+#              "|_______|"),
+#          5: (" _______ ",
+#              "| *   * |",
+#              "|   *   |",
+#              "| *   * |",
+#              "|_______|"),
+#          6: (" _______ ",
+#              "| *   * |",
+#              "| *   * |",
+#              "| *   * |",
+#              "|_______|")}
+
+# num_dice = int(input("how many dices do u want ?"))
+
+# for x in range(num_dice):
+#     dies.append(random.randint(1,6))
+
+# print(dies)
+# # for item in dies :
+# #     for dice in dices.get(item):
+# #         print(dice)
+
+# for row in range(5):
+#     for dice in dies :
+#         print(dices.get(dice)[row],end=" ")
+#     print()
+        
