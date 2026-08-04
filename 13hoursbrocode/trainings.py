@@ -131,41 +131,70 @@
 
 ### quizz 
 
-questions = (
-    "What gas do humans need to breathe to survive?",
-    "What is the closest planet to the Sun?",
-    "What force pulls objects toward the Earth?",
-    "What organ pumps blood through the human body?"
-)
+# questions = (
+#     "What gas do humans need to breathe to survive?",
+#     "What is the closest planet to the Sun?",
+#     "What force pulls objects toward the Earth?",
+#     "What organ pumps blood through the human body?"
+# )
 
-answers = (
-    ("A) Nitrogen", "B) Oxygen", "C) Helium", "D) Carbon"),
-    ("A) Venus", "B) Mars", "C) Mercury", "D) Earth"),
-    ("A) Friction", "B) Inertia", "C) Magnetism", "D) Gravity"),
-    ("A) Liver", "B) Heart", "C) Kidney", "D) Lung")
-)
+# answers = (
+#     ("A) Nitrogen", "B) Oxygen", "C) Helium", "D) Carbon"),
+#     ("A) Venus", "B) Mars", "C) Mercury", "D) Earth"),
+#     ("A) Friction", "B) Inertia", "C) Magnetism", "D) Gravity"),
+#     ("A) Liver", "B) Heart", "C) Kidney", "D) Lung")
+# )
 
-correct_answers = ("B", "C", "D", "B")
-guesses =[]
-score = 0
-row =0
+# correct_answers = ("B", "C", "D", "B")
+# guesses =[]
+# score = 0
+# row =0
 
-for qeustion in questions:
-    print("+++++++++++++++++++++++++++++++++++")
-    print(qeustion)
-    for answer in answers[row]:
-        print(answer)    
+# for qeustion in questions:
+#     print("+++++++++++++++++++++++++++++++++++")
+#     print(qeustion)
+#     for answer in answers[row]:
+#         print(answer)    
     
-    guess = input("Please Answer with A,B,C,D: ")
-    guesses.append(guess)
-    if guess.upper() == correct_answers[row]:
-        print("correct answer")
-        score +=1
-    else :
-        print(f"the correct answer is {correct_answers[row]}")
+#     guess = input("Please Answer with A,B,C,D: ")
+#     guesses.append(guess)
+#     if guess.upper() == correct_answers[row]:
+#         print("correct answer")
+#         score +=1
+#     else :
+#         print(f"the correct answer is {correct_answers[row]}")
         
-    row += 1
+#     row += 1
  
-print("/////// SCORES \\\\\\\\\\")
+# print("/////// SCORES \\\\\\\\\\")
 
-print(f"YOU'VE SCORED {score / len(questions) *100} ")
+# print(f"YOU'VE SCORED {score / len(questions) *100} ")
+
+### late night Shop
+
+menu = {"pizza":3,"bretzel" :1.5,"curry wurst":3,"burger":3,"soda":1,"ayran":1}
+
+cart=[]
+total=0
+
+for key ,value in menu.items():
+    print(f"{key.capitalize()} : {value} euro")
+
+print("-----------------------------")
+
+while True:
+    order = input("What do you order ? (q for exit)\n").lower()
+    
+    if order == "q":
+        break
+    elif menu.get(order) :
+        cart.append(order)
+    else :
+        print(f"order {order} not available")
+    
+for key ,value in menu.items():
+    if key in cart :
+        total += value
+
+print(f"your total is {total}")
+        
