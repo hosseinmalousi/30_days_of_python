@@ -201,44 +201,74 @@
         
 ### Python number guessing 
 
-import random 
+# import random 
 
-highest_num = 100
-lowest_num = 0 
+# highest_num = 100
+# lowest_num = 0 
 
-answer = random.randint(lowest_num,highest_num)
+# answer = random.randint(lowest_num,highest_num)
 
-difficulty = {"easy":7,"medium":4,"hard":3}
-chances = 0
-score = 0
+# difficulty = {"easy":7,"medium":4,"hard":3}
+# chances = 0
+# score = 0
 
-for key ,value in difficulty.items():
-    print(f"{key} : {value} chances")
-user_diff = input(f"please pick a difficulty level from above :").lower()
+# for key ,value in difficulty.items():
+#     print(f"{key} : {value} chances")
+# user_diff = input(f"please pick a difficulty level from above :").lower()
 
-if difficulty.get(user_diff) :
-    chances = difficulty.get(user_diff)
+# if difficulty.get(user_diff) :
+#     chances = difficulty.get(user_diff)
 
-while difficulty.get(user_diff) >= 1 :
-    guess = input(f"please guess the number between {lowest_num} and {highest_num} :")
+# while difficulty.get(user_diff) >= 1 :
+#     guess = input(f"please guess the number between {lowest_num} and {highest_num} :")
     
-    if guess.isdigit() :
-        guess = int(guess)
-        if guess > highest_num or guess < lowest_num :
-            print("your guess is out of range")
-        elif guess > answer :
-            print("try lower ;)")
-            chances -= 1
-        elif guess < answer :
-            print("try higher ;) ")
-            chances -= 1
-        elif guess == answer :
-            print(f"your guess {guess} is right ")
-            print(f"your score is {chances}")
-            break
-        else :
-            print("invalid input")
-    else :
-        print("please enter a number")
+#     if guess.isdigit() :
+#         guess = int(guess)
+#         if guess > highest_num or guess < lowest_num :
+#             print("your guess is out of range")
+#         elif guess > answer :
+#             print("try lower ;)")
+#             chances -= 1
+#         elif guess < answer :
+#             print("try higher ;) ")
+#             chances -= 1
+#         elif guess == answer :
+#             print(f"your guess {guess} is right ")
+#             print(f"your score is {chances}")
+#             break
+#         else :
+#             print("invalid input")
+#     else :
+#         print("please enter a number")
         
-            
+### Rock , Paper , Scissors
+import random
+
+options = ("rock" , "paper", "scissors")
+
+
+
+playing = True
+
+while playing :
+    Player = None
+    computer = random.choice(options)
+    while Player not in options :
+        Player = input("Rock , Paper ,Scissors : ").lower()
+    
+    print(f"your choice {Player}")
+    print(f"computer choice {computer}")
+    
+    if Player == "paper" and computer == "rock" :
+        print("you win :)")
+    elif Player == "rock" and computer == "scissors":
+        print("you win :)")
+    elif Player == "scissors" and computer == "paper":
+        print("you win :)")
+    elif Player == computer:
+        print("it's a tie")
+    else :
+        print("you lose :( )")
+    
+    if input("wanna play again ? (yes/no) ") != "yes" :
+        playing = False 
