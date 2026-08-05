@@ -324,3 +324,73 @@
 #         print(dices.get(dice)[row],end=" ")
 #     print()
         
+# grades = {"hoss" : "A" , "mamad" : "b","nima":"C"}
+
+# print(grades.get("hoss"),grades["mamad"])
+
+# def sayhello(name,*args,**kwargs):
+#     print(f"hi {name} {args[1]}")
+#     if kwargs["girl"] :
+#         print(f"bonjur madame {kwargs["girl"]}")
+# sayhello("mamad","ali","hossein",girl = "fatemeh")
+    
+# print(help("copy"))
+
+
+# def main():
+#     print("im main")
+
+# if __name__ == "__main__":
+#     main()
+
+### banking program 
+
+def showBalance(balance):
+    print(f"Your balance is {balance:.02f}$")
+
+def deposit(balance):
+    amount = float(input("How much do you want to deposit ? "))
+    
+    if amount > 0 :
+        return amount
+    else :
+        print("please insert a valid number and graeter than zero")
+        return 0
+
+def withdraw(balance):
+    amount = float(input("How much do you want to withdraw ? "))
+    
+    if amount > 0 and amount < balance :
+        return amount
+    else :
+        print("please insert a valid number and graeter than zero")
+        return 0
+
+def main():
+    balance = 0
+    is_running = True
+    
+    while is_running:
+        print("Welcome to our seld-made Bank")
+        print("1.Show Balance")
+        print("2.Deposit")
+        print("3.Withdraw")
+        print("4.quit")
+        
+        option = int(input("please choose from 1-4 :"))
+        
+        match option:
+            case 1:
+                print("*******************")
+                showBalance(balance)
+                print("*******************")
+            case 2:
+                balance += deposit(balance)
+            case 3:
+                balance -= withdraw(balance)
+            case 4:
+                is_running = False
+        
+
+if __name__ == "__main__":
+    main()
