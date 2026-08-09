@@ -345,52 +345,124 @@
 
 ### banking program 
 
-def showBalance(balance):
-    print(f"Your balance is {balance:.02f}$")
+# def showBalance(balance):
+#     print(f"Your balance is {balance:.02f}$")
 
-def deposit(balance):
-    amount = float(input("How much do you want to deposit ? "))
+# def deposit(balance):
+#     amount = float(input("How much do you want to deposit ? "))
     
-    if amount > 0 :
-        return amount
-    else :
-        print("please insert a valid number and graeter than zero")
-        return 0
+#     if amount > 0 :
+#         return amount
+#     else :
+#         print("please insert a valid number and graeter than zero")
+#         return 0
 
-def withdraw(balance):
-    amount = float(input("How much do you want to withdraw ? "))
+# def withdraw(balance):
+#     amount = float(input("How much do you want to withdraw ? "))
     
-    if amount > 0 and amount < balance :
-        return amount
-    else :
-        print("please insert a valid number and graeter than zero")
-        return 0
+#     if amount > 0 and amount < balance :
+#         return amount
+#     else :
+#         print("please insert a valid number and graeter than zero")
+#         return 0
+
+# def main():
+#     balance = 0
+#     is_running = True
+    
+#     while is_running:
+#         print("Welcome to our seld-made Bank")
+#         print("1.Show Balance")
+#         print("2.Deposit")
+#         print("3.Withdraw")
+#         print("4.quit")
+        
+#         option = int(input("please choose from 1-4 :"))
+        
+#         match option:
+#             case 1:
+#                 print("*******************")
+#                 showBalance(balance)
+#                 print("*******************")
+#             case 2:
+#                 balance += deposit(balance)
+#             case 3:
+#                 balance -= withdraw(balance)
+#             case 4:
+#                 is_running = False
+        
+
+# if __name__ == "__main__":
+#     main()
+
+### Slot Machine Game
+import random
+import time
+def roll():
+    slots = ["💣" , "🔮" , "🛎" , "🍑"]
+    
+    return [random.choice(slots) for _ in range(3)]
+
+def print_row(row):
+    print("is spinning ...")
+    time.sleep(1)
+            
+    print("|".join(row))
+
+def payout(row,bet):
+    if row[0] == row[1] == row[2]:
+        if row[0] == "💣":
+            return bet * 3
+        elif row[0] == "🔮":
+            return bet * 6
+        elif row[0] == "🛎":
+            return bet * 9
+        else :
+            return bet * 5
+    return 0
 
 def main():
-    balance = 0
-    is_running = True
     
-    while is_running:
-        print("Welcome to our seld-made Bank")
-        print("1.Show Balance")
-        print("2.Deposit")
-        print("3.Withdraw")
-        print("4.quit")
+    balance = input("please enter the amount you wnat as the balance : $")
+    if not balance.isdigit():
+        print("please enter a valid number")
         
-        option = int(input("please choose from 1-4 :"))
+    balance = int(balance)
+    
+    while balance > 0:
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
+        print("Wellcome to the slot machine game")
+        print("$$$$$$$$$$$$$$$$$$$$$$$\n")
         
-        match option:
-            case 1:
-                print("*******************")
-                showBalance(balance)
-                print("*******************")
-            case 2:
-                balance += deposit(balance)
-            case 3:
-                balance -= withdraw(balance)
-            case 4:
-                is_running = False
         
+        print(f"balance : ${balance}")
+        
+        bet = input("how much are u willing to bet: $")
+        
+        if not bet.isdigit() :
+            print("enter a valid number")
+            
+        bet = int(bet)
+        
+        if bet < 0 :
+            print("please set a bet more than zero")
+            continue
+        elif bet > balance :
+            print("insufficent funds ")
+            continue
+        else :
+            balance -= bet    
+        
+        row =roll()
+        print_row(row)
+        
+        balance += payout(row,bet)
+        
+        playAgain = input("do you want to play agian (Y/N) :").lower()
+        if not playAgain == "y" :
+            break
+    print(f"your current balance is ${balance}")
+    
 
 if __name__ == "__main__":
-    main()
+    main() 
