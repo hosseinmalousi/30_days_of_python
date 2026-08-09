@@ -396,73 +396,114 @@
 #     main()
 
 ### Slot Machine Game
-import random
-import time
-def roll():
-    slots = ["💣" , "🔮" , "🛎" , "🍑"]
+# import random
+# import time
+# def roll():
+#     slots = ["💣" , "🔮" , "🛎" , "🍑"]
     
-    return [random.choice(slots) for _ in range(3)]
+#     return [random.choice(slots) for _ in range(3)]
 
-def print_row(row):
-    print("is spinning ...")
-    time.sleep(1)
+# def print_row(row):
+#     print("is spinning ...")
+#     time.sleep(1)
             
-    print("|".join(row))
+#     print("|".join(row))
 
-def payout(row,bet):
-    if row[0] == row[1] == row[2]:
-        if row[0] == "💣":
-            return bet * 3
-        elif row[0] == "🔮":
-            return bet * 6
-        elif row[0] == "🛎":
-            return bet * 9
-        else :
-            return bet * 5
-    return 0
+# def payout(row,bet):
+#     if row[0] == row[1] == row[2]:
+#         if row[0] == "💣":
+#             return bet * 3
+#         elif row[0] == "🔮":
+#             return bet * 6
+#         elif row[0] == "🛎":
+#             return bet * 9
+#         else :
+#             return bet * 5
+#     return 0
+
+# def main():
+    
+#     balance = input("please enter the amount you wnat as the balance : $")
+#     if not balance.isdigit():
+#         print("please enter a valid number")
+        
+#     balance = int(balance)
+    
+#     while balance > 0:
+#         print("$$$$$$$$$$$$$$$$$$$$$$$")
+#         print("Wellcome to the slot machine game")
+#         print("$$$$$$$$$$$$$$$$$$$$$$$\n")
+        
+        
+#         print(f"balance : ${balance}")
+        
+#         bet = input("how much are u willing to bet: $")
+        
+#         if not bet.isdigit() :
+#             print("enter a valid number")
+            
+#         bet = int(bet)
+        
+#         if bet < 0 :
+#             print("please set a bet more than zero")
+#             continue
+#         elif bet > balance :
+#             print("insufficent funds ")
+#             continue
+#         else :
+#             balance -= bet    
+        
+#         row =roll()
+#         print_row(row)
+        
+#         balance += payout(row,bet)
+        
+#         playAgain = input("do you want to play agian (Y/N) :").lower()
+#         if not playAgain == "y" :
+#             break
+#     print(f"your current balance is ${balance}")
+    
+
+# if __name__ == "__main__":
+#     main() 
+
+### Eyncrypt and Decrypt program
+
+import string
+import random
+
+def encrypt(text,chars,keys):
+    encrypted = ""
+    for char in text:
+        index = chars.index(char)
+        encrypted += keys[index]
+    return encrypted
+
+def decrypt(text,chars,keys):
+    decrypted = ""
+    for char in text:
+        index = keys.index(char)
+        decrypted += chars[index]
+    return decrypted
 
 def main():
-    
-    balance = input("please enter the amount you wnat as the balance : $")
-    if not balance.isdigit():
-        print("please enter a valid number")
-        
-    balance = int(balance)
-    
-    while balance > 0:
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Wellcome to the slot machine game")
-        print("$$$$$$$$$$$$$$$$$$$$$$$\n")
-        
-        
-        print(f"balance : ${balance}")
-        
-        bet = input("how much are u willing to bet: $")
-        
-        if not bet.isdigit() :
-            print("enter a valid number")
-            
-        bet = int(bet)
-        
-        if bet < 0 :
-            print("please set a bet more than zero")
-            continue
-        elif bet > balance :
-            print("insufficent funds ")
-            continue
+    chars = list(" " + string.digits + string.ascii_lowercase+ string.ascii_uppercase + string.punctuation)
+    keys = chars.copy()
+    random.shuffle(keys)
+    while True:
+        print("Wellcome to the cipherus")
+        print("************************")        
+        text = input("please enter the text (q for exit):")
+        if text != "q" : 
+            if input("please insert E for eyncrypt and D for decrypt : ").lower() == "e" :
+                encrypted = encrypt(text,chars,keys)
+                print(f"The Encrypted text : {encrypted}")
+            else :
+                decrypted = decrypt(text,chars,keys)
+                print(f"The Decrypted text : {decrypted}")
+            print()
         else :
-            balance -= bet    
-        
-        row =roll()
-        print_row(row)
-        
-        balance += payout(row,bet)
-        
-        playAgain = input("do you want to play agian (Y/N) :").lower()
-        if not playAgain == "y" :
-            break
-    print(f"your current balance is ${balance}")
-    
+            break        
 
 if __name__ == "__main__":
-    main() 
+    main()
