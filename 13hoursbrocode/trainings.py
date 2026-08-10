@@ -469,41 +469,113 @@
 
 ### Eyncrypt and Decrypt program
 
-import string
+# import string
+# import random
+
+# def encrypt(text,chars,keys):
+#     encrypted = ""
+#     for char in text:
+#         index = chars.index(char)
+#         encrypted += keys[index]
+#     return encrypted
+
+# def decrypt(text,chars,keys):
+#     decrypted = ""
+#     for char in text:
+#         index = keys.index(char)
+#         decrypted += chars[index]
+#     return decrypted
+
+# def main():
+#     chars = list(" " + string.digits + string.ascii_lowercase+ string.ascii_uppercase + string.punctuation)
+#     keys = chars.copy()
+#     random.shuffle(keys)
+#     while True:
+#         print("Wellcome to the cipherus")
+#         print("************************")        
+#         text = input("please enter the text (q for exit):")
+#         if text != "q" : 
+#             if input("please insert E for eyncrypt and D for decrypt : ").lower() == "e" :
+#                 encrypted = encrypt(text,chars,keys)
+#                 print(f"The Encrypted text : {encrypted}")
+#             else :
+#                 decrypted = decrypt(text,chars,keys)
+#                 print(f"The Decrypted text : {decrypted}")
+#             print()
+#         else :
+#             break        
+
+# if __name__ == "__main__":
+#     main()
+
+### Hangman game 
+
 import random
 
-def encrypt(text,chars,keys):
-    encrypted = ""
-    for char in text:
-        index = chars.index(char)
-        encrypted += keys[index]
-    return encrypted
+words = ["apple" , "oraange" , "coconut","waater","banana"]
 
-def decrypt(text,chars,keys):
-    decrypted = ""
-    for char in text:
-        index = keys.index(char)
-        decrypted += chars[index]
-    return decrypted
+hangman_art={0:("  ","  ","  "),
+             1:(" O ","  ","  "),
+             2:(" O "," | ","  "),
+             3:(" O ","/| ","  "),
+             4:(" O ","/|\\","  "),
+             5:(" O ","/|\\","/  "),
+             6:(" O ","/|\\","/ \\")}
+
+def display_art(counter):
+    for line in hangman_art[counter]:
+        print(line)
+    print("***************")
+
+
+def show_answer(answer):
+    print(f"The correct answer is {answer}")
+
+def fill_placeholder(placeholder):
+    print("***************")
+    print(" ".join(placeholder)+"\n")
+    print("***************")
 
 def main():
-    chars = list(" " + string.digits + string.ascii_lowercase+ string.ascii_uppercase + string.punctuation)
-    keys = chars.copy()
-    random.shuffle(keys)
-    while True:
-        print("Wellcome to the cipherus")
-        print("************************")        
-        text = input("please enter the text (q for exit):")
-        if text != "q" : 
-            if input("please insert E for eyncrypt and D for decrypt : ").lower() == "e" :
-                encrypted = encrypt(text,chars,keys)
-                print(f"The Encrypted text : {encrypted}")
-            else :
-                decrypted = decrypt(text,chars,keys)
-                print(f"The Decrypted text : {decrypted}")
-            print()
+    print("Wellcome to the hangman game")
+    
+    answer = random.choice(words)
+    wrong_guesses = 0
+    placeholder = ["_"]* len(answer) 
+    already_guessed = set()
+    is_running = True
+    
+    while is_running:
+        fill_placeholder(placeholder)
+        display_art(wrong_guesses)
+        
+        
+        guess =input("please type down your guess :")
+        if len(guess) != 1 or not guess.isalpha():
+            print("please add a valid input")
+            continue
+        elif guess in already_guessed:
+            print("you've already guessed this letter")
+            continue
+        
+        if guess in answer :
+            for i in range(len(answer)):
+                if answer[i] == guess :
+                    placeholder[i] = guess
+            already_guessed.add(guess)
         else :
-            break        
-
+            wrong_guesses += 1
+            
+        if wrong_guesses >= len(hangman_art) - 1:
+            display_art(wrong_guesses)
+            show_answer(answer)
+            print("You've lose")
+            is_running = False
+        elif "_" not in placeholder :
+            display_art(wrong_guesses)
+            show_answer(answer)
+            print("You've won")
+            is_running = False
+            
 if __name__ == "__main__":
     main()
