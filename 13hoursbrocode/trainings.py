@@ -511,8 +511,7 @@
 ### Hangman game 
 
 import random
-
-words = ["apple" , "oraange" , "coconut","waater","banana"]
+import words
 
 hangman_art={0:("  ","  ","  "),
              1:(" O ","  ","  "),
@@ -539,7 +538,7 @@ def fill_placeholder(placeholder):
 def main():
     print("Wellcome to the hangman game")
     
-    answer = random.choice(words)
+    answer = random.choice(words.words)
     wrong_guesses = 0
     placeholder = ["_"]* len(answer) 
     already_guessed = set()
