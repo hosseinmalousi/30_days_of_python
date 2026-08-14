@@ -510,71 +510,219 @@
 
 ### Hangman game 
 
-import random
-import words
+# import random
+# import words
 
-hangman_art={0:("  ","  ","  "),
-             1:(" O ","  ","  "),
-             2:(" O "," | ","  "),
-             3:(" O ","/| ","  "),
-             4:(" O ","/|\\","  "),
-             5:(" O ","/|\\","/  "),
-             6:(" O ","/|\\","/ \\")}
+# hangman_art={0:("  ","  ","  "),
+#              1:(" O ","  ","  "),
+#              2:(" O "," | ","  "),
+#              3:(" O ","/| ","  "),
+#              4:(" O ","/|\\","  "),
+#              5:(" O ","/|\\","/  "),
+#              6:(" O ","/|\\","/ \\")}
 
-def display_art(counter):
-    for line in hangman_art[counter]:
-        print(line)
-    print("***************")
+# def display_art(counter):
+#     for line in hangman_art[counter]:
+#         print(line)
+#     print("***************")
 
 
-def show_answer(answer):
-    print(f"The correct answer is {answer}")
+# def show_answer(answer):
+#     print(f"The correct answer is {answer}")
 
-def fill_placeholder(placeholder):
-    print("***************")
-    print(" ".join(placeholder)+"\n")
-    print("***************")
+# def fill_placeholder(placeholder):
+#     print("***************")
+#     print(" ".join(placeholder)+"\n")
+#     print("***************")
 
-def main():
-    print("Wellcome to the hangman game")
+# def main():
+#     print("Wellcome to the hangman game")
     
-    answer = random.choice(words.words)
-    wrong_guesses = 0
-    placeholder = ["_"]* len(answer) 
-    already_guessed = set()
-    is_running = True
+#     answer = random.choice(words.words)
+#     wrong_guesses = 0
+#     placeholder = ["_"]* len(answer) 
+#     already_guessed = set()
+#     is_running = True
     
-    while is_running:
-        fill_placeholder(placeholder)
-        display_art(wrong_guesses)
+#     while is_running:
+#         fill_placeholder(placeholder)
+#         display_art(wrong_guesses)
         
         
-        guess =input("please type down your guess :")
-        if len(guess) != 1 or not guess.isalpha():
-            print("please add a valid input")
-            continue
-        elif guess in already_guessed:
-            print("you've already guessed this letter")
-            continue
+#         guess =input("please type down your guess :")
+#         if len(guess) != 1 or not guess.isalpha():
+#             print("please add a valid input")
+#             continue
+#         elif guess in already_guessed:
+#             print("you've already guessed this letter")
+#             continue
         
-        if guess in answer :
-            for i in range(len(answer)):
-                if answer[i] == guess :
-                    placeholder[i] = guess
-            already_guessed.add(guess)
-        else :
-            wrong_guesses += 1
+#         if guess in answer :
+#             for i in range(len(answer)):
+#                 if answer[i] == guess :
+#                     placeholder[i] = guess
+#             already_guessed.add(guess)
+#         else :
+#             wrong_guesses += 1
             
-        if wrong_guesses >= len(hangman_art) - 1:
-            display_art(wrong_guesses)
-            show_answer(answer)
-            print("You've lose")
-            is_running = False
-        elif "_" not in placeholder :
-            display_art(wrong_guesses)
-            show_answer(answer)
-            print("You've won")
-            is_running = False
+#         if wrong_guesses >= len(hangman_art) - 1:
+#             display_art(wrong_guesses)
+#             show_answer(answer)
+#             print("You've lose")
+#             is_running = False
+#         elif "_" not in placeholder :
+#             display_art(wrong_guesses)
+#             show_answer(answer)
+#             print("You've won")
+#             is_running = False
             
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
+
+# class Athelte:
+    
+#     atheltes =[]
+    
+#     def __init__(self,first_name,last_name,age,club,sport):
+#         self._first_name = first_name.capitalize()
+#         self._last_name = last_name
+#         self.age = age
+#         self.club = club
+#         self._sport = sport
+#         self.atheltes.append((self._first_name,self._last_name))
+    
+#     @property
+#     def first_name(self):
+#         return self._first_name
+    
+#     @first_name.setter
+#     def first_name(self,new_first_name):
+#         self._first_name = new_first_name
+
+#     @property
+#     def sport(self):
+#         return self._sport
+    
+#     @sport.deleter
+#     def sport(self):
+#         del self._sport
+#         print("sport has been deleted")
+#     def get_athelte(self):
+#         return f"{self.first_name} {self.last_name} is {self.age} years old and is a {self.sport} player"
+    
+#     def get_player_goals(self):
+#         pass
+    
+#     def Score():
+#         pass   
+    
+#     @classmethod
+#     def list_athletes(cls):
+#         for athlete in cls.atheltes:
+#             print(athlete)
+    
+#     @staticmethod
+#     def is_club_valid(club):
+#         clubs = ["Barcelona" , "Athletico madrid" ,"Real madrid" , "Malaga"]
+#         return club.capitalize() in clubs
+    
+    
+# class Footballer(Athelte):
+#     def __init__(self, first_name, last_name, age, club,position):
+#         super().__init__(first_name, last_name, age, club ,sport="football")
+#         self.position = position
+        
+
+
+
+# athelte1 = Athelte("hossein","malousi" , 21,"barcelona","football")
+# athelte2 = Athelte("Alex","b",21,"real","basketball")
+
+# footballer1 = Footballer("hossein","malousi",21,"real" ,"winger",)
+# footballer1.first_name = "stephan"
+# footballer1.position = "midfielder"
+# print(footballer1.position)
+# del footballer1.sport
+# print(footballer1.list_athletes())
+# print(Athelte.is_club_valid("barcelona"))
+    
+
+# import os
+# import json
+
+# family_members = {"parents":("saeed" ,"maryam"),
+#                   "childerens":("hossein","rozhan"),
+#                   "pets":("steve")}
+# file_path= "./text.text"
+
+# with open(file_path,"r") as file:
+#     print(file.read())
+#     print(f"file {file_path} is created")
+    
+# with open("./13hoursbrocode/json_test.json","w") as file:
+#     json.dump(family_members,file,indent=4)
+#     print("json test has been created")
+
+
+### alarm clock
+
+# import datetime
+# import time
+
+
+# is_running = True
+# target_time = input("when do u wanna wake up ?:(HH:MM:SS)\n")
+
+
+# while is_running: 
+#     current_time = datetime.datetime.now().strftime("%H:%M:%S")
+#     # target_time = datetime.time(14,11,0)
+#     print(current_time)
+#     time.sleep(1)
+#     if  current_time == target_time:
+#         print("wake up sinshine")
+#         is_running = False
+
+
+### api testing 
+
+# import requests
+
+# base_url= "https://pokeapi.co/api/v2/pokemon/"
+
+# def get_the_quote(name):
+#     url =f"{base_url}{name}"
+    
+#     request =requests.get(url)
+    
+#     if request.status_code == 200 :
+#         print("data recieved")
+#         req_data = request.json()
+#         return req_data
+#     else :
+#         print("no such name")
+#         return 
+
+# name = input("what anime qoute do u want :")
+
+# qoute = get_the_quote(name)
+
+# print(qoute["name"])
+
+### coffee picture fetcher
+
+import requests
+
+def fetch_pic():
+    url = "https://coffee.alexflipnote.dev/random"
+    
+    req = requests.get(url,stream=True)
+    
+    if req.status_code == 200 :
+        with open("./coffee.jpg", "wb") as file:
+            for chunk in req.iter_content(chunk_size=8192):
+                file.write(chunk)
+        return "file has been created"
+            
+pic = fetch_pic()
+print(pic)

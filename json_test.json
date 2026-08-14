@@ -1,0 +1,11 @@
+{
+    "parents": [
+        "saeed",
+        "maryam"
+    ],
+    "childerens": [
+        "hossein",
+        "rozhan"
+    ],
+    "pets": "steve"
+}
